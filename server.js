@@ -1,5 +1,5 @@
-HOST = null; // localhost
-PORT = 8001;
+HOST = "run.cloud9ide.com";
+PORT = process.env.C9_PORT;
 
 // when the daemon started
 var starttime = (new Date()).getTime();
