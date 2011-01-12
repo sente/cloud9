@@ -1,4 +1,4 @@
-HOST = "run.cloud9ide.com";
+HOST = "0.0.0.0";
 PORT = process.env.C9_PORT;
 
 // when the daemon started
