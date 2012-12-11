@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-var http = require('http');
-http.createServer(function (req, res) {
-   res.writeHead(200, {'Content-Type': 'text/plain'});
-   res.end('Hello World\n');
-}).listen(process.env.PORT);
-=======
 HOST = process.env.IP;
 PORT = process.env.PORT;
 
@@ -217,4 +210,3 @@ fu.get("/send", function (req, res) {
   channel.appendMessage(session.nick, "msg", text);
   res.simpleJSON(200, { rss: mem.rss });
 });
->>>>>>> ajaxorg
