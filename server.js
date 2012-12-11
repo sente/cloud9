@@ -1,5 +1,8 @@
-HOST = "0.0.0.0";
-PORT = process.env.C9_PORT;
+HOST = process.env.IP;
+PORT = process.env.PORT;
+
+console.log(PORT);
+console.log(HOST);
 
 // when the daemon started
 var starttime = (new Date()).getTime();
@@ -12,7 +15,7 @@ setInterval(function () {
 
 
 var fu = require("./fu"),
-    sys = require("sys"),
+    util = require("util"),
     url = require("url"),
     qs = require("querystring");
 
@@ -32,13 +35,13 @@ var channel = new function () {
 
     switch (type) {
       case "msg":
-        sys.puts("<" + nick + "> " + text);
+        util.puts("<" + nick + "> " + text);
         break;
       case "join":
-        sys.puts(nick + " join");
+        util.puts(nick + " join");
         break;
       case "part":
-        sys.puts(nick + " part");
+        util.puts(nick + " part");
         break;
     }
 
@@ -152,7 +155,7 @@ fu.get("/join", function (req, res) {
     return;
   }
 
-  //sys.puts("connection: " + nick + "@" + res.connection.remoteAddress);
+  //util.puts("connection: " + nick + "@" + res.connection.remoteAddress);
 
   channel.appendMessage(session.nick, "join");
   res.simpleJSON(200, { id: session.id
